@@ -82,7 +82,7 @@
 }
 
 #displayProduct{
-  margin-left: 45%;
+  margin-left: 33%;
   margin-right: 40%;
   text-align: left;
 }
@@ -99,8 +99,17 @@
   color: red;
   font-size: small;
   font-style: italic;
-  position:fixed;
+  position:inherit;
   right:10px;
   bottom:10px;
   height:100px;
 }
+
+img {
+  margin-left: 60px;
+}
+
+#productDetails {
+  margin-left: 30%;
+}
+
