@@ -140,6 +140,12 @@ span {
   margin-top: 35px;
 }
 
+form {
+  margin-left: 43%;
+  margin-right: 40%;
+  text-align: left;
+}
+
 .overlay a {
   padding: 8px;
   text-decoration: none;
@@ -155,8 +161,8 @@ span {
 
 .overlay .closebtn {
   position: absolute;
-  top: 20px;
-  right: 45px;
+  top: 80%;
+  right: 30px;
   font-size: 60px;
 }
 
