@@ -16,15 +16,24 @@
   <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
 </div>
 
+
 <!-- Tab content -->
 <div id="Client" class="tabcontent">
   <h3 >Client Information</h3>
   <p>Tell us a bit about you.</p>
-	Select your food preferences:
-	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
-	<option value="Vegetarian">Vegetarian</option>
-    <option value="GlutenFree">Non-Gluten</option>
-    <option value="GlutenFree or Vegetarian">Non-Gluten or Vegetarian</option>
+  Food Category:
+  <select name="catSelect" id="catSelect">
+    <option value="Vegetable">Vegetable</option>
+    <option value="Fruit">Fruit</option>
+    <option value="Flour-made">Flour-made</option>
+    <option value="Juice">Juice</option>
+    <option value="Snacks">Snacks</option>
+  </select>
+	Choose a Category:
+	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices('catSelect', this.id, 'displayProduct')">
+	  <option value="Vegetarian">Vegetarian</option>
+    <option value="GlutenFree">GlutenFree</option>
+    <option value="GlutenFree or Vegetarian">GlutenFree or Vegetarian</option>
     <option value="Organic">Organic</option>
     <option value="None">None</option>
 	</select>
@@ -32,7 +41,7 @@
 
 <div id="Products" class="tabcontent">
   <h3>Your targeted products</h3>
-  <p>We preselected products based on your preferences.</p>
+  <p>We preselected products based on your restrictions.</p>
 	 Choose items to buy:
    <br>
    <br>
@@ -44,7 +53,7 @@
 
 <div id="Cart" class="tabcontent">
   <h3>Cart</h3>
-  <p>Here are your items.</p>
+  <p>Here is your cart.</p>
   <div id="displayCart"></div>
 </div>
 
@@ -52,6 +61,7 @@
 
 <script src="scripts/groceries.js"></script>
 <script src="scripts/main.js"></script>
+<!-- <script src="scripts/myNav.js"></script> -->
 
 </body>
 </html>
