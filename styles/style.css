@@ -70,6 +70,7 @@
 }
 
 #Client {
+  font-size: medium;
   text-align: center;
 }
 
@@ -104,6 +105,18 @@
   bottom:10px;
   height:100px;
 }
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: pink;
+  background-color:rgba(255,192,203,0.5);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
 
 img {
   margin-left: 60px;
@@ -111,5 +124,48 @@ img {
 
 #productDetails {
   margin-left: 30%;
+}
+
+
+
+span {
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #383232;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
 }
 
