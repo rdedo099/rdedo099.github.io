@@ -29,19 +29,26 @@ function openInfo(evt, tabName) {
 // generate a checkbox list from a list of products
 // it makes each product name as the label for the checkbos
 
-function populateListProductChoices(slct0, slct1, slct2) {
+function populateListProductChoices(slct1, slct2) {
 	console.log(products);
 	chosenProducts = [];
-	var s0 = document.getElementById(slct0);
     var s1 = document.getElementById(slct1);
     var s2 = document.getElementById(slct2);
+
+	
+	var slct0 = null;
+	var obj = document.getElementsByName("category")
+	for (var i = 0; i < obj.length; i++) { //遍历Radio 
+		if (obj[i].checked) {
+			slct0 = obj[i].value;                   
+		}
+	}
 	
 	// s2 represents the <div> in the Products tab, which shows the product list, so we first set it empty
     s2.innerHTML = "";
 		
 	// obtain a reduced list of products based on restrictions
-    var optionArray = restrictListProducts(products, s0.value, s1.value);
-	console.log(s0.value);
+    var optionArray = restrictListProducts(products, slct0, s1.value);
 	console.log(optionArray);
 	console.log(s1.value);
 
