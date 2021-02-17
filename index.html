@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Multiple Groceries</title>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <h1 id="tit">Ottawa Fresh Food</h3>
+
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&lt;</a>
+    <div class="overlay-content">
+      <a href="#" onclick="openInfo(event, 'Client')">Client</a>
+      <a href="#" onclick="openInfo(event, 'Products')">Products</a>
+      <a href="#" onclick="openInfo(event, 'Cart')">Cart</a>
+    </div>
+  </div>
+
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+<!-- Tab links, each one with an onclick event associated with it -->
+<!-- <div class="tab">
+  <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
+  <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
+</div> -->
+
+
+<!-- Tab content -->
+<div id="Client" class="tabcontent">
+  <h3 >Client Information</h3>
+  <p>Tell us a bit about you.</p>
+  Food Category:
+  <br>
+  <!-- <form name="catSelect" id="catSelect">
+    <input type="radio" value="Vegetable">
+    <label for="Vegetable">Vegetable</label><br>
+    <input type="radio" value="Fruit">
+    <label for="Fruit">Fruit</label><br>
+    <input type="radio" value="Four-made">
+    <label for="Four-made">Four-made</label>
+    <input type="radio" value="Juice">
+    <label for="Juice">Juice</label>
+    <input type="radio" value="Snacks">
+    <label for="Snacks">Snacks</label>
+
+  </form> -->
+  <form>
+    <input type="radio" name = "category" value="Vegetable">Vegetable<br>
+    <input type="radio" name = "category" value="Fruit">Fruit<br>
+    <input type="radio" name = "category" value="Flour-made">Flour-made<br>
+    <input type="radio" name = "category" value="Juice">Juice<br>
+    <input type="radio" name = "category" value="Snacks">Snacks<br>
+  </form>
+  <!-- <select name="catSelect" id="catSelect">
+    <option value="Vegetable">Vegetable</option>
+    <option value="Fruit">Fruit</option>
+    <option value="Flour-made">Flour-made</option>
+    <option value="Juice">Juice</option>
+    <option value="Snacks">Snacks</option>
+  </select> -->
+  <br>
+  <br>
+	Choose a Category:
+	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
+	  <option value="Vegetarian">Vegetarian</option>
+    <option value="GlutenFree">GlutenFree</option>
+    <option value="GlutenFree or Vegetarian">GlutenFree or Vegetarian</option>
+    <option value="Organic">Organic</option>
+    <option value="None">None</option>
+	</select>
+  <br>
+  <br>
+  <button id="addCart" type="button" class="button" onclick="openInfo(event, 'Products')">
+    Ready to see your products!
+  </button>
+</div>
+
+<div id="Products" class="tabcontent">
+  <h3>Your targeted products</h3>
+  <p>We preselected products based on your restrictions.</p>
+	 Choose items to buy:
+   <br>
+   <br>
+	 <div id="displayProduct"></div>
+   <br>
+   <br>
+	 <button id="addCart" type="button" class="button" onclick="selectedItems()">
+		Add selected items to cart.
+	</button>
+</div>
+
+<div id="Cart" class="tabcontent">
+  <h3>Cart</h3>
+  <p>Here is your cart.</p>
+  <div id="displayCart"></div>
+</div>
+
+<footer id="sig">Site created by Xingpeng Wang, Riley de Domenico, and Yifei Wang</footer>
+
+<script src="scripts/groceries.js"></script>
+<script src="scripts/main.js"></script>
+<!-- <script src="scripts/myNav.js"></script> -->
+<script>
+  function openNav() {
+    document.getElementById("myNav").style.width = "30%";
+  }
+  
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+  }
+</script>
+
+</body>
+</html>
