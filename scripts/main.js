@@ -20,6 +20,8 @@ function openInfo(evt, tabName) {
 	document.getElementById(tabName).style.display = "block";
 	evt.currentTarget.className += " active";
 
+	closeNav();
+
 }
 
 
@@ -42,6 +44,19 @@ function populateListProductChoices(slct0, slct1, slct2) {
 	console.log(s0.value);
 	console.log(optionArray);
 	console.log(s1.value);
+
+	var emp = "Sry, no such product exits. "
+	var empMethod = "Please go back to the previous section."
+
+	if(optionArray.length === 0){
+		var sp = document.createElement('p');
+		sp.appendChild(document.createTextNode(emp));
+		s2.appendChild(sp);
+
+		var sp_1 = document.createElement('p');
+		sp_1.appendChild(document.createTextNode(empMethod));
+		s2.appendChild(sp_1);
+	}else{
 
 	// for each item in the array, create a checkbox element, each containing information such as:
 	// <input type="checkbox" name="product" value="Bread">
@@ -87,7 +102,7 @@ function populateListProductChoices(slct0, slct1, slct2) {
 		// create a breakline node and add in HTML DOM
 		s2.appendChild(document.createElement("br"));   
 		chosenProducts.push(productName);
-	}
+	}}
 }
 	
 // This function is called when the "Add selected items to cart" button in clicked
