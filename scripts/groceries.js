@@ -3,14 +3,24 @@
 
 var products = [
 	{
-		name: "brocoli",
+		name: "broccoli",
+		vegetable: true,
 		vegetarian: true,
 		glutenFree: true,
 		price: 1.99,
 		organic: true
 	},
 	{
+		name: "banana",
+		fruit: true,
+		vegetarian: false,
+		glutenFree: true,
+		price: 0.99,
+		organic: true
+	},
+	{
 		name: "bread",
+		flourMade: true,
 		vegetarian: true,
 		glutenFree: false,
 		price: 2.35,
@@ -18,6 +28,7 @@ var products = [
 	},
 	{
 		name: "salmon",
+		meat: true,
 		vegetarian: false,
 		glutenFree: true,
 		price: 10.00,
@@ -25,6 +36,7 @@ var products = [
 	},
 	{
 		name: "pork",
+		meat: true,
 		vegetarian: false,
 		glutenFree: true,
 		price: 8.00,
@@ -32,6 +44,7 @@ var products = [
 	},
 	{
 		name: "noodle",
+		flourMade: true,
 		vegetarian: true,
 		glutenFree: false,
 		price: 1.82,
@@ -39,6 +52,7 @@ var products = [
 	},
 	{
 		name: "ginger",
+		vegetable: true,
 		vegetarian: true,
 		glutenFree: true,
 		price: 0.94,
@@ -46,6 +60,7 @@ var products = [
 	},
 	{
 		name: "shrimp",
+		meat: true,
 		vegetarian: false,
 		glutenFree: true,
 		price: 12.00,
@@ -53,6 +68,7 @@ var products = [
 	},
 	{
 		name: "apple juice",
+		juice: true,
 		vegetarian: true,
 		glutenFree: true,
 		price: 5.00,
@@ -60,6 +76,7 @@ var products = [
 	},
 	{
 		name: "cookie",
+		snacks: true,
 		vegetarian: true,
 		glutenFree: false,
 		price: 4.5,
@@ -67,6 +84,7 @@ var products = [
 	},
 	{
 		name: "chocolate",
+		snacks: true,
 		vegetarian: true,
 		glutenFree: true,
 		price: 3.20,
@@ -82,20 +100,39 @@ var products = [
 // given restrictions provided, make a reduced list of products
 // prices should be included in this list, as well as a sort based on price
 
-function restrictListProducts(prods, restriction) {
+function restrictListProducts(prods, res, restriction) {
 	let product_names = [];
+	let product_fitter = []
 	for (let i=0; i<prods.length; i+=1) {
 		if ((restriction.indexOf("Vegetarian") != -1) && (prods[i].vegetarian == true)){
-			product_names.push(prods[i].name);
+			product_fitter.push(prods[i]);
 		}
 		else if ((restriction.indexOf("GlutenFree") != -1) && (prods[i].glutenFree == true)){
-			product_names.push(prods[i].name);
+			product_fitter.push(prods[i]);
 		}
 		else if (restriction == "None"){
-			product_names.push(prods[i].name);
+			product_fitter.push(prods[i]);
 		}
 		else if((restriction.indexOf("Organic") != -1)&&(prods[i].organic == true)){
-			product_names.push(prods[i].name);
+			product_fitter.push(prods[i]);
+		}
+	}
+
+	for (let i = 0; i<product_fitter.length; i++){
+		if((res.indexOf("Vegetable") != -1) && (product_fitter[i].vegetable == true)){
+			product_names.push(product_fitter[i].name);
+		}
+		else if((res.indexOf("Fruit") != -1) && (product_fitter[i].fruit == true)){
+			product_names.push(product_fitter[i].name);
+		}
+		else if((res.indexOf("Flour-made") != -1) && (product_fitter[i].flourMade == true)){
+			product_names.push(product_fitter[i].name);
+		}
+		else if((res.indexOf("Juice") != -1) && (product_fitter[i].juice == true)){
+			product_names.push(product_fitter[i].name);
+		}
+		else if((res.indexOf("Snacks") != -1) && (product_fitter[i].snacks == true)){
+			product_names.push(product_fitter[i].name);
 		}
 	}
 	product_names.sort(function(a, b) {
@@ -113,7 +150,7 @@ function restrictListProducts(prods, restriction) {
 	});
 	return product_names;
 }
- 
+
 // Calculate the total price of items, with received parameter being a list of products
 function getTotalPrice(chosenProducts) {
 	chosenWithoutPrice = [];
