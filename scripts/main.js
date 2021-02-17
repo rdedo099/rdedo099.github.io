@@ -27,9 +27,10 @@ function openInfo(evt, tabName) {
 // generate a checkbox list from a list of products
 // it makes each product name as the label for the checkbos
 
-function populateListProductChoices(slct1, slct2) {
+function populateListProductChoices(slct0, slct1, slct2) {
 	console.log(products);
 	chosenProducts = [];
+	var s0 = document.getElementById(slct0);
     var s1 = document.getElementById(slct1);
     var s2 = document.getElementById(slct2);
 	
@@ -37,7 +38,8 @@ function populateListProductChoices(slct1, slct2) {
     s2.innerHTML = "";
 		
 	// obtain a reduced list of products based on restrictions
-    var optionArray = restrictListProducts(products, s1.value);
+    var optionArray = restrictListProducts(products, s0.value, s1.value);
+	console.log(s0.value);
 	console.log(optionArray);
 	console.log(s1.value);
 
@@ -46,6 +48,8 @@ function populateListProductChoices(slct1, slct2) {
 	// <label for="Bread">Bread/label><br>
 	var price;
 	var productDetail;
+	var imgSrc;
+	var space = ' ';
 		
 	for (i = 0; i < optionArray.length; i++) {
 			
@@ -57,15 +61,26 @@ function populateListProductChoices(slct1, slct2) {
 		for (let k = 0; k<products.length; k++){
 			if(products[k].name===productName){
 				price = products[k].price;
+				imgSrc = "./imgs/" + productName + ".png";
 			}
 		}
-		productDetail = productName + '  ' + price;
+		productDetail = productName + '  ' + price + "$";
 		checkbox.value = productDetail;
 		s2.appendChild(checkbox);
+
+		var sp = document.createElement('p');
+		sp.appendChild(document.createTextNode(space));
+		s2.appendChild(sp);
+
+		var img = document.createElement('img');
+		img.src = imgSrc;
+		img.alt = productName;
+		s2.appendChild(img);
 		
 		// create a label for the checkbox, and also add in HTML DOM
 		var label = document.createElement('label')
 		label.htmlFor = productDetail;
+		label.id = "productDetails";
 		label.appendChild(document.createTextNode(productDetail));
 		s2.appendChild(label);
 		
