@@ -134,6 +134,9 @@ function restrictListProducts(prods, res, restriction) {
 		else if((res.indexOf("Snacks") != -1) && (product_fitter[i].snacks == true)){
 			product_names.push(product_fitter[i].name);
 		}
+		else if((res.indexOf("meat") != -1) && (product_fitter[i].meat == true)){
+			product_names.push(product_fitter[i].name);
+		}
 	}
 	product_names.sort(function(a, b) {
 		var priceA, priceB;
