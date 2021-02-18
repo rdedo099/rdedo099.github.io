@@ -64,11 +64,11 @@
   </select> -->
   <br>
   <br>
-	Choose a Category:
+	Choose a preference and restriction:
 	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
 	  <option value="Vegetarian">Vegetarian</option>
-    <option value="GlutenFree">GlutenFree</option>
-    <option value="GlutenFree or Vegetarian">GlutenFree or Vegetarian</option>
+    <option value="GlutenFree">Dislike Gluten</option>
+    <option value="GlutenFree or Vegetarian">Dislike Gluten or Vegetarian</option>
     <option value="Organic">Organic</option>
     <option value="None">None</option>
 	</select>
@@ -81,7 +81,7 @@
 
 <div id="Products" class="tabcontent">
   <h3>Your targeted products</h3>
-  <p>We preselected products based on your restrictions.</p>
+  <p>We preselected products based on your restrictions and preferences.</p>
 	 Choose items to buy:
    <br>
    <br>
@@ -95,7 +95,7 @@
 
 <div id="Cart" class="tabcontent">
   <h3>Cart</h3>
-  <p>Here is your cart.</p>
+  <p>Here is your products in the cart.</p>
   <div id="displayCart"></div>
 </div>
 
